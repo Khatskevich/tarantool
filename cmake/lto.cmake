@@ -4,6 +4,7 @@
 
 message(STATUS "Try to enable LTO")
 if(NOT CMAKE_VERSION VERSION_LESS 3.9)
+  message(STATUS "Try to enable LTO")
   cmake_policy(SET CMP0069 NEW)
   include(CheckIPOSupported)
   check_ipo_supported(RESULT CMAKE_INTERPROCEDURAL_OPTIMIZATION_AVAILABLE)
@@ -159,7 +160,7 @@ if(MSVC)
 endif()
 
 macro(enable_lto_or_ipo)
-  if(CMAKE_INTERPROCEDURAL_OPTIMIZATION_AVAILABLE) #############################
+	if(NOT CMAKE_INTERPROCEDURAL_OPTIMIZATION_AVAILABLE) #############################
 
     message(STATUS "Indulge Interprocedural Optimization by CMake")
     set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
