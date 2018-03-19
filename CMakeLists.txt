@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
+cmake_policy(SET CMP0069 NEW)
+set(CMAKE_INTERPROCEDURAL_OPTIMIZATION TRUE)
 
 project(tarantool C CXX)
 
